@@ -18,8 +18,8 @@ const Navbar = () => {
   }
 
   return (
-    <div className='shadow-md w-full fixed top-0 left-0'>
-      <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
+    <div className='shadow-md w-full fixed top-0 left-0 z-50'>
+      <div className='md:flex items-center justify-around bg-slate-800 py-5 md:px-10 px-7'>
         <div>
           <span>
             <img
@@ -27,21 +27,29 @@ const Navbar = () => {
               src='https://static.vecteezy.com/system/resources/thumbnails/000/560/604/small/Vector_logo_with_bottel_beer.jpg'
             />
           </span>
-          <h2 className='text-xl font-semibold'>Divinobar</h2>
+          <h2 className='text-xl font-semibold text-yellow-500'>Divinobar</h2>
         </div>
-        <div onClick={handleOpen} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>
-          {open ? <i className='fa-solid fa-times'></i> : <i className='fa-solid fa-bars'></i>}
-          
+        <div
+          onClick={handleOpen}
+          className='text-3xl text-white absolute right-8 top-6 cursor-pointer md:hidden'
+        >
+          {open ? (
+            <i className='fa-solid fa-times'></i>
+          ) : (
+            <i className='fa-solid fa-bars'></i>
+          )}
         </div>
         <ul
-          className={`md:flex md:items-center md:pb-0 pt-3 absolute md:static bg-white md:z-auto z-[-1] 
-        left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20': 'top-[-300px]'}`} 
+          className={`md:flex md:items-center md:pb-0 max-sm:pt-3 mt-8 absolute md:static bg-slate-800 md:z-auto z-[-1] 
+        left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+          open ? 'top-20' : 'top-[-300px]'
+        }`}
         >
           {links.map((link) => {
             return (
               <NavLink key={link.name} to={link.to}>
-                <li className='md:ml-8 text-xl'>
-                  <p className=' hover:text-red-500 duration-500'>
+                <li className='md:ml-8 text-xl text-white'>
+                  <p className=' hover:text-yellow-500 duration-500'>
                     {link.name}
                   </p>
                 </li>
