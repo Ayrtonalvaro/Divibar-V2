@@ -10,7 +10,7 @@ const About = () => {
           className='rounded-full w-52'
         />
       </div>
-      <div className='max-sm mt-10'>
+      <div className='max-sm:mt-10 max-sm:pt-5 pt-56'>
         <h1 className='text-white text-center max-sm:text-4xl text-6xl uppercase font-bold  font-alkatra'>
           Divinobar
         </h1>

@@ -26,7 +26,7 @@ const Footer = () => {
     }
   ]
   return (
-    <div className='bg-slate-800 flex justify-between items-center px-20 text-white  pt-5 pb-5'>
+    <div className='bg-slate-800 max-sm:flex-col flex justify-between items-center px-20 text-white  pt-5 pb-5'>
       <div className='flex gap-3 items-center'>
         <img
           className='w-16 rounded-full'
@@ -36,7 +36,7 @@ const Footer = () => {
           © Divinobar 2023 . Todos los derechos reservados
         </h5>
       </div>
-      <ul className='flex'>
+      <ul className='flex max-sm:gap-5'>
         {links.map((link) => {
           return (
             <NavLink key={link.name} to={link.to}>
