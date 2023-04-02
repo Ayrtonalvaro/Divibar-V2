@@ -8,7 +8,10 @@ const Navbar = () => {
     { name: 'Home', to: '/' },
     { name: 'Menus', to: '/menus' },
     { name: 'Eventos', to: '/eventos' },
-    { name: 'Contacto', to: '/contacto' }
+    { name: 'Contacto', to: '/contacto' },
+    { name: 'Register', to: '/register' },
+    { name: 'Login', to: '/login' },
+    
   ]
 
   const [open, setOpen] = useState<boolean>(false)
@@ -56,7 +59,9 @@ const Navbar = () => {
               </NavLink>
             )
           })}
-          <CartIcon />
+          <NavLink to='/compra'>
+            <CartIcon />
+          </NavLink>
         </ul>
       </div>
     </div>

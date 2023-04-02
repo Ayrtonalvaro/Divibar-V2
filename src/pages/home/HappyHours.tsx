@@ -18,7 +18,7 @@ const HappyHours = () => {
             </h2>
             <h4 className='text-2xl'>Horario</h4>
             <p className='font-extrabold'>18:00hs a 20:00hs</p>
-            <button className='bg-yellow-400 rounded-md w-20'>Reservar</button>
+            <button className='bg-yellow-400 rounded-md w-20 hover:bg-yellow-500 duration-200 '>Reservar</button>
           </div>
         </div>
       </div>

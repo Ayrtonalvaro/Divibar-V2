@@ -9,6 +9,10 @@ import Eventos from './pages/eventos/Eventos'
 import Home from './pages/home/Home'
 import Menu from './pages/menus/Menu'
 import ProductDetails from './pages/producto/ProductDetails'
+import Register from './pages/register/Register'
+import Login from './pages/login/Login'
+import PageNotFound from './pages/PageNotFound'
+
 
 function App() {
   return (
@@ -17,11 +21,14 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/Menu' element={<Menu />} />
+          <Route path='/Menus' element={<Menu />} />
           <Route path='/productos/:id' element={<ProductDetails />} />
           <Route path='/eventos' element={<Eventos />} />
-          <Route path='/carrito' element={<CartPage />} />
+          <Route path='/compra' element={<CartPage />} />
           <Route path='/contacto' element={<Contact />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
         <Footer />
       </div>
