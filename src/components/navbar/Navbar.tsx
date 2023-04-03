@@ -2,19 +2,29 @@ import { Link } from '../../models/Link'
 import { NavLink } from 'react-router-dom'
 import CartIcon from './CartIcon'
 import { useState } from 'react'
+import { useAuth } from '../../context/authContext'
 
 const Navbar = () => {
+  const [auth, setAuth] = useAuth()
+
+  const hadleLogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: ''
+    })
+    localStorage.removeItem('auth')
+  }
+
   const links: Link[] = [
     { name: 'Home', to: '/' },
     { name: 'Menus', to: '/menus' },
     { name: 'Eventos', to: '/eventos' },
-    { name: 'Contacto', to: '/contacto' },
-    { name: 'Register', to: '/register' },
-    { name: 'Login', to: '/login' },
-    
+    { name: 'Contacto', to: '/contacto' }
   ]
 
   const [open, setOpen] = useState<boolean>(false)
+  console.log(auth.user)
 
   const handleOpen = () => {
     setOpen(!open)
@@ -59,6 +69,32 @@ const Navbar = () => {
               </NavLink>
             )
           })}
+
+          {auth.user === null ? (
+            <>
+              <NavLink to='/register'>
+                <li className='md:ml-8 text-xl text-white'>
+                  <p className=' hover:text-yellow-500 duration-500'>
+                    Register
+                  </p>
+                </li>
+              </NavLink>
+              <NavLink to='/login'>
+                <li className='md:ml-8 text-xl text-white'>
+                  <p className=' hover:text-yellow-500 duration-500'>Login</p>
+                </li>
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink to='/login' onClick={ hadleLogout}>
+                <li className='md:ml-8 text-xl text-white'>
+                  <p className=' hover:text-yellow-500 duration-500'>Logout</p>
+                </li>
+              </NavLink>
+            </>
+          )}
+
           <NavLink to='/compra'>
             <CartIcon />
           </NavLink>

@@ -16,23 +16,21 @@ import PageNotFound from './pages/PageNotFound'
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className='w-full h-screen'>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/Menus' element={<Menu />} />
-          <Route path='/productos/:id' element={<ProductDetails />} />
-          <Route path='/eventos' element={<Eventos />} />
-          <Route path='/compra' element={<CartPage />} />
-          <Route path='/contacto' element={<Contact />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='*' element={<PageNotFound />} />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <div className='w-full h-screen'>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/Menus' element={<Menu />} />
+        <Route path='/productos/:id' element={<ProductDetails />} />
+        <Route path='/eventos' element={<Eventos />} />
+        <Route path='/compra' element={<CartPage />} />
+        <Route path='/contacto' element={<Contact />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='*' element={<PageNotFound />} />
+      </Routes>
+      <Footer />
+    </div>
   )
 }
 

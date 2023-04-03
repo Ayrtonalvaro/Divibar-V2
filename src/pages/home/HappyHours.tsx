@@ -1,7 +1,9 @@
 import React from 'react'
-
+import { useAuth } from '../../context/authContext'
 const HappyHours = () => {
+  const [auth, setAuth] = useAuth()
   return (
+    
     <div>
       <h2 className='text-center text-5xl font-bold text-yellow-500 mt-10'>
         Happy Hours
@@ -22,6 +24,7 @@ const HappyHours = () => {
           </div>
         </div>
       </div>
+      <pre>{JSON.stringify(auth,null,4)}</pre>
     </div>
   )
 }
