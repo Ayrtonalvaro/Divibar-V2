@@ -87,14 +87,20 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <NavLink to='/login' onClick={ hadleLogout}>
+              <NavLink to='/login' onClick={hadleLogout}>
                 <li className='md:ml-8 text-xl text-white'>
                   <p className=' hover:text-yellow-500 duration-500'>Logout</p>
                 </li>
               </NavLink>
             </>
           )}
-
+          <NavLink
+            to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'}`}
+          >
+            <li className='md:ml-8 text-xl text-white'>
+              <p className=' hover:text-yellow-500 duration-500'>Deshboard</p>
+            </li>
+          </NavLink>
           <NavLink to='/compra'>
             <CartIcon />
           </NavLink>

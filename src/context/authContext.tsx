@@ -6,17 +6,24 @@ import {
   useEffect
 } from 'react'
 import { User } from '../models/User'
+import axios from 'axios'
 type Props = {
   children: ReactNode
 }
 
 const AuthContext = createContext({})
 
+
 const AuthProvider = ({ children }: Props) => {
   const [auth, setAuth] = useState({
     user: {} as User,
     token: ''
   })
+
+  axios.defaults.headers.common['Authorization'] = auth?.token
+
+
+  
   useEffect(() => {
     const data = localStorage.getItem('auth')
     if (data) {

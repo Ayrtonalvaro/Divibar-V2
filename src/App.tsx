@@ -12,7 +12,8 @@ import ProductDetails from './pages/producto/ProductDetails'
 import Register from './pages/register/Register'
 import Login from './pages/login/Login'
 import PageNotFound from './pages/PageNotFound'
-
+import Dashboard from './pages/user/Dashboard'
+import PrivateRoute from './routes/PrivateRoute'
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/dashboard' element={<PrivateRoute />}>
+          <Route path='' element={<Dashboard />} />
+        </Route>
         <Route path='/Menus' element={<Menu />} />
         <Route path='/productos/:id' element={<ProductDetails />} />
         <Route path='/eventos' element={<Eventos />} />
