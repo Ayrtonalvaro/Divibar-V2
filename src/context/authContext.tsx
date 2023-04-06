@@ -11,19 +11,26 @@ type Props = {
   children: ReactNode
 }
 
-const AuthContext = createContext({})
+type AuthData = {
+  user: User | null
+  token: string
+}
 
+type GlobalContext = {
+  auth?: AuthData
+  setAuth: (authData: AuthData) => void
+}
+
+const AuthContext = createContext<GlobalContext>({ setAuth: () => {} })
 
 const AuthProvider = ({ children }: Props) => {
-  const [auth, setAuth] = useState({
+  const [auth, setAuth] = useState<AuthData>({
     user: {} as User,
     token: ''
   })
 
   axios.defaults.headers.common['Authorization'] = auth?.token
 
-
-  
   useEffect(() => {
     const data = localStorage.getItem('auth')
     if (data) {
@@ -36,7 +43,7 @@ const AuthProvider = ({ children }: Props) => {
     }
   }, [])
   return (
-    <AuthContext.Provider value={[auth, setAuth]}>
+    <AuthContext.Provider value={{ auth, setAuth }}>
       {children}
     </AuthContext.Provider>
   )

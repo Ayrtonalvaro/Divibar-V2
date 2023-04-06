@@ -6,7 +6,7 @@ import axios from 'axios'
 import Spinner from '../components/Spinner'
 const PrivateRoute = () => {
   const [ok, setOk] = useState<boolean>(false)
-  const [auth, setAuth] = useAuth()
+  const { auth, setAuth } = useAuth()
 
   useEffect(() => {
     const authCheck = async () => {

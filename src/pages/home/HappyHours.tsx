@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAuth } from '../../context/authContext'
 const HappyHours = () => {
-  const [auth, setAuth] = useAuth()
+  
   return (
     
     <div>
@@ -24,7 +24,7 @@ const HappyHours = () => {
           </div>
         </div>
       </div>
-      <pre>{JSON.stringify(auth,null,4)}</pre>
+      
     </div>
   )
 }

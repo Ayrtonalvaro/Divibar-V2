@@ -1,9 +1,9 @@
-import React from 'react'
+
 import AdminMenu from '../../components/admin/AdminMenu'
 import { useAuth } from '../../context/authContext'
 
 const AdminDashboard = () => {
-  const [auth] = useAuth()
+  const { auth } = useAuth()
   return (
     <div className='h-screen'>
       <div className=' mt-96 flex justify-center items-center'>

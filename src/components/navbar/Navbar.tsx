@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useAuth } from '../../context/authContext'
 
 const Navbar = () => {
-  const [auth, setAuth] = useAuth()
+  const { auth, setAuth } = useAuth()
 
   const hadleLogout = () => {
     setAuth({
@@ -24,7 +24,6 @@ const Navbar = () => {
   ]
 
   const [open, setOpen] = useState<boolean>(false)
-  console.log(auth.user)
 
   const handleOpen = () => {
     setOpen(!open)
@@ -70,18 +69,20 @@ const Navbar = () => {
             )
           })}
 
-          {auth.user === null ? (
+          {auth?.user === null ? (
             <>
               <NavLink to='/register'>
                 <li className='md:ml-8 text-xl text-white'>
                   <p className=' hover:text-yellow-500 duration-500'>
-                    Register
+                    Registrarse
                   </p>
                 </li>
               </NavLink>
               <NavLink to='/login'>
                 <li className='md:ml-8 text-xl text-white'>
-                  <p className=' hover:text-yellow-500 duration-500'>Login</p>
+                  <p className=' hover:text-yellow-500 duration-500'>
+                    Iniciar sesión
+                  </p>
                 </li>
               </NavLink>
             </>
@@ -89,18 +90,23 @@ const Navbar = () => {
             <>
               <NavLink to='/login' onClick={hadleLogout}>
                 <li className='md:ml-8 text-xl text-white'>
-                  <p className=' hover:text-yellow-500 duration-500'>Logout</p>
+                  <p className=' hover:text-yellow-500 duration-500'>
+                    Cerrar sesión
+                  </p>
+                </li>
+              </NavLink>
+              <NavLink
+                to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'}`}
+              >
+                <li className='md:ml-8 text-xl text-white'>
+                  <p className=' hover:text-yellow-500 duration-500'>{` ${
+                    auth?.user?.role === 1 ? 'admin' : 'user'
+                  } panel`}</p>
                 </li>
               </NavLink>
             </>
           )}
-          <NavLink
-            to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'}`}
-          >
-            <li className='md:ml-8 text-xl text-white'>
-              <p className=' hover:text-yellow-500 duration-500'>Deshboard</p>
-            </li>
-          </NavLink>
+
           <NavLink to='/compra'>
             <CartIcon />
           </NavLink>

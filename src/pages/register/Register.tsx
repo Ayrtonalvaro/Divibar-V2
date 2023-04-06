@@ -10,6 +10,7 @@ const Register = () => {
   const inputPasswordRef = useRef<HTMLInputElement | null>(null)
   const inputPhoneRef = useRef<HTMLInputElement | null>(null)
   const inputAddressRef = useRef<HTMLInputElement | null>(null)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -26,11 +27,15 @@ const Register = () => {
       phone: inputPhoneValue,
       address: inputAddressValue
     }
-    console.log(newUser)
+    
     try {
-      const res = await axios.post(`http://localhost:3001/api/v1/auth/register`,newUser)
+      const res = await axios.post(
+        `http://localhost:3001/api/v1/auth/register`,
+        newUser
+      )
       if (res.data.success) {
         toast.success(res.data.message)
+        navigate('/login')
       } else {
         toast.error(res.data.message)
       }
@@ -41,8 +46,9 @@ const Register = () => {
 
   return (
     <div className='h-screen mt-80'>
-      <h1 className='text-center text-yellow-500 text-4xl'>Registrarse</h1>
       <ToastContainer />
+      <h1 className='text-center text-yellow-500 text-4xl'>Registrarse</h1>
+
       <div>
         <h4 className='text-center text-xl text-slate-400'>
           Ingrese sus datos

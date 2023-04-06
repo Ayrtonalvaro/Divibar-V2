@@ -9,7 +9,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 const Login = () => {
   const inputEmailRef = useRef<HTMLInputElement | null>(null)
   const inputPasswordRef = useRef<HTMLInputElement | null>(null)
-  const [auth, setAuth] = useAuth()
+  const {auth, setAuth} = useAuth()
   const navigate = useNavigate()
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
