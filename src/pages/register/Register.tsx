@@ -48,7 +48,6 @@ const Register = () => {
     <div className='h-screen mt-80'>
       <ToastContainer />
       <h1 className='text-center text-yellow-500 text-4xl'>Registrarse</h1>
-
       <div>
         <h4 className='text-center text-xl text-slate-400'>
           Ingrese sus datos
