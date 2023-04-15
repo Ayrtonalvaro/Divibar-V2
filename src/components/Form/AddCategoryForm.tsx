@@ -44,12 +44,14 @@ const AddCategoryForm = () => {
               ref={inputCategoryRef}
               placeholder='Ingrese la categoria'
             />
-            <button
-              className='hover:bg-green-500 bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-              type='submit'
-            >
-              Agregar
-            </button>
+            <div>
+              <button
+                className='hover:bg-green-500 bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+                type='submit'
+              >
+                Agregar
+              </button>
+            </div>
           </div>
         </form>
       </div>

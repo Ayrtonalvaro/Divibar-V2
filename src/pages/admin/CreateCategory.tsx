@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Category } from '../../models/Category'
 import { toast } from 'react-toastify'
 import CategoryForm from '../../components/Form/CategoryForm'
-import AddCategoryForm from '../../components/Form/addCategoryForm'
+import AddCategoryForm from '../../components/Form/AddCategoryForm'
 const CreateCategory = () => {
   const [categories, setCategories] = useState<Category[]>([])
   const [modalState, setModalState] = useState<boolean>(false)
@@ -49,13 +49,12 @@ const CreateCategory = () => {
   }
 
   return (
-    <div className='max-sm:grid-cols-1 grid grid-cols-2 h-screen items-center relative'>
+    <div className='max-sm:grid-cols-1 grid grid-cols-3 h-screen items-center relative'>
       <AdminMenu />
-      <div>
+      <div className='col-span-2 p-10'>
         <div>
           <AddCategoryForm />
         </div>
-        <h1 className='text-3xl font-bold'>Panel categoria </h1>
         <div className='flex flex-col'>
           <div className='-my-2 overflow-x-auto '>
             <div className='py-2 align-middle   sm:px-6 lg:px-8'>
@@ -121,7 +120,6 @@ const CreateCategory = () => {
                   </tbody>
                 </table>
               </div>
-              
             </div>
           </div>
         </div>
